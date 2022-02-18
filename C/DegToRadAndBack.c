@@ -19,7 +19,7 @@ void Tabulka(int pi){
     }
 }
 
-int WinMain(){
+int WinMain(){ // Z nějakého důvodu tam musim mít WinMain() než Main()
     float pi = 3.14159265359;
     ToDeg(2, pi);
     ToRad(30, pi);
