@@ -252,7 +252,7 @@ AttackingEvent.OnServerEvent:Connect(function(player, hit)
 				if hit.Blocking.Value == true or hit.Hardened.Value == true then
 					return
 				end
-				game.ReplicatedStorage.ShiftRemotes.Blind:FireClient(game.Players[hit.Parent.Parent.Player.Value])
+				hit.Parent:findFirstChildOfClass("Humanoid").Health = 0
 			end
 			hit.Parent:findFirstChildOfClass("Humanoid"):TakeDamage(50000)
 			BreakBlades:FireClient(player)
@@ -268,7 +268,11 @@ AttackingEvent.OnServerEvent:Connect(function(player, hit)
 				v:Stop()
 			end
 			local t = hit.Parent:findFirstChild("Animations").Blind
-
+			
+			if hit.Parent.Parent:FindFirstChild("Player") then
+				game.ReplicatedStorage.ShiftRemotes.Blind:FireClient(game.Players[hit.Parent.Parent.Player.Value])
+			end
+			
 			local track = hit.Parent.Humanoid:LoadAnimation(t)
 			track:Play()
 
@@ -334,4 +338,3 @@ AttackingEvent.OnServerEvent:Connect(function(player, hit)
 	rightBlade.Material = Enum.Material.Metal
 	attacking = true
 end)
-	
