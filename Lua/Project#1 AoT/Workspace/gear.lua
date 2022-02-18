@@ -1,4 +1,5 @@
---// LOCAL SCRIPT \\--
+   --//   LOCAL SCRIPT    \\--
+----// MAIN GEAR FUNCTIONS \\----
 
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Folder = script:WaitForChild("Events")
